@@ -12,8 +12,7 @@ def requestJob(url: str, status_code_expected: int, number_of_requests: int, dat
         response = requests.get(url)  # Realiza a requisição GET para a URL especificada
         if(response.status_code == status_code_expected):  # Verifica se o código de status da resposta é igual ao código esperado
             fim = datetime.datetime.now()        
-            tempo = fim - inicio
-            #tempo = tempo.seconds
+            tempo = round((fim - inicio)/60)
             print(tempo)
             adicionar_dados_excel(arquivo_excel="./output/dados.xlsx", volume_de_dados=number_of_requests, tempo=tempo, url=url)
             
