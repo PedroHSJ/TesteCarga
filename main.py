@@ -4,12 +4,10 @@ from dotenv import load_dotenv  # Importa a função "load_dotenv" do módulo "d
 import os  # Importa o módulo "os" para trabalhar com variáveis de ambiente
 from run_threaded import run_threaded  # Importa a função "run_threaded" do módulo "run_threaded"
 from main_requests import requestJob  # Importa a função "requestJob" do módulo "main_requests"
+from load_dotenv import get_dotenv  # Importa a função "get_dotenv" do módulo "load_dotenv"
 
-# Carrega as variáveis de ambiente do arquivo .env
-load_dotenv()
 
-# Agora você pode usar as variáveis de ambiente como desejar
-BASE_URL = os.getenv("BASE_URL")  # Obtém o valor da variável de ambiente "BASE_URL"
+BASE_URL = get_dotenv()
 NUMBER_OF_REQUESTS = 10  # Define o número de requisições a serem agendadas
 
 for i in range(NUMBER_OF_REQUESTS):
