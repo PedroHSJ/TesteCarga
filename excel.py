@@ -26,11 +26,10 @@ def adicionar_dados_excel(arquivo_excel, volume_de_dados, tempo, url):
     coluna_url.value = nome_coluna_url
     coluna_url.fill = PatternFill(start_color="C0C0C0", end_color="C0C0C0", fill_type="solid")
 
-    for i in range(1, volume_de_dados+1):
         # Fazer a requisição e obter os dados de tempo e URL
         # Inserir os dados nas células
-        sheet[f"A{last_row + i}"] = tempo
-        sheet[f"B{last_row + i}"] = url
+    sheet[f"A{last_row+1}"] = tempo
+    sheet[f"B{last_row+1}"] = url
 
     # Salvar as alterações no arquivo Excel
     workbook.save(arquivo_excel)

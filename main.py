@@ -30,15 +30,15 @@ data={
     }
 NUMBER_OF_REQUESTS = 5  # Define o número de requisições a serem agendadas
 
-# for i in range(NUMBER_OF_REQUESTS):
-#     print("Agendando requisição " + str(i))
-#     # Função que será executada pela schedule
-#     schedule.every().minute.do(run_threaded, requestJob, BASE_URL, 200, NUMBER_OF_REQUESTS)
+for i in range(NUMBER_OF_REQUESTS):
+    print("Agendando requisição " + str(i))
+    # Função que será executada pela schedule
+    schedule.every().second.do(run_threaded, requestJob, BASE_URL, 200, NUMBER_OF_REQUESTS)
 
-# print("Iniciando o schedule")
-# # Loop infinito para executar a schedule
-# while True:
-#     schedule.run_pending()  # Executa as tarefas agendadas
-#     time.sleep(1)  # Aguarda 1 segundo antes de verificar novamente
+print("Iniciando o schedule")
+# Loop infinito para executar a schedule
+while True:
+    schedule.run_pending()  # Executa as tarefas agendadas
+    time.sleep(1)  # Aguarda 1 segundo antes de verificar novamente
 
-run_threaded(requestJob, BASE_URL, 200, NUMBER_OF_REQUESTS, data)
+# run_threaded(requestJob, BASE_URL, 200, NUMBER_OF_REQUESTS, data)
