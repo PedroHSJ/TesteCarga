@@ -1,5 +1,6 @@
 import datetime
 import requests
+from response_txt import gravar_resposta_em_arquivo
 
 from excel import adicionar_dados_excel  # Importa o módulo "requests" para fazer requisições HTTP
 
@@ -12,9 +13,9 @@ def requestJob(url: str, status_code_expected: int, number_of_requests: int, dat
         response = requests.get(url)  # Realiza a requisição GET para a URL especificada
         if(response.status_code == status_code_expected):  # Verifica se o código de status da resposta é igual ao código esperado
             fim = datetime.datetime.now()        
-            tempo = round((fim - inicio)/60)
-            print(tempo)
-            adicionar_dados_excel(arquivo_excel="./output/dados.xlsx", volume_de_dados=number_of_requests, tempo=tempo, url=url)
+            tempo = fim - inicio
+            gravar_resposta_em_arquivo(response.text, "./output/resposta.txt")
+            #adicionar_dados_excel(arquivo_excel="./output/dados.xlsx", volume_de_dados=number_of_requests, tempo=tempo, url=url)
             
             print("Request OK")  # Imprime uma mensagem indicando que a requisição foi bem-sucedida
         else:
