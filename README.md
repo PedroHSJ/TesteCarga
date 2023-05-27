@@ -5,8 +5,8 @@ Este é um pequeno teste de carga para API's
 
 Certifique-se de ter os seguintes requisitos antes de prosseguir:
 
-- Python instalado (versão X.X.X)
-- Pip instalado (versão X.X.X)
+- Python instalado (versão  3.10.10)
+- Pip instalado (versão 22.3.1)
 
 ## Configurando o Ambiente Virtual
 
