@@ -9,7 +9,7 @@ def requestJob(url: str, status_code_expected: int, number_of_requests: int, dat
         print("Requesting...")  # Imprime uma mensagem indicando que a requisição está sendo feita
         print("URL: " + url)  # Imprime a URL da requisição
         
-        response = requests.get(url)  # Realiza a requisição GET para a URL especificada
+        response = requests.post(url, json=data)  # Realiza a requisição GET para a URL especificada
         if(response.status_code == status_code_expected):  # Verifica se o código de status da resposta é igual ao código esperado
             fim = datetime.datetime.now()        
             tempo = fim - inicio
